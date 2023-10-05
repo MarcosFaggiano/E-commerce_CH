@@ -2,20 +2,20 @@ import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-//import mi archivo css 
+
 import './NavBar.css';
 
 const NavBar = ({ background }) => {
-  //Declaro una variable donde voy a almacenar la ruta de la imagen que quiero mostrar
-  const brand =
-    'https://f.hubspotusercontent10.net/hub/20044066/hubfs/raw_assets/public/kong/images/logo.png?width=190&name=logo.png';
-  //la lógica va siempre antes del return
+  const brand = '/src/assets/img/Logo.jpg';
+
   return (
     <header className={`header background--${background}`}>
-      
       <div className="header-container">
-        
-        {/* links de navegación */}
+        <div className="logo-container">
+          { }
+          <img src={brand} alt="logo" className="mi-clase-de-imagen" />
+        </div>
+        { }
         <nav>
           <ul className="nav-container">
             <li>
@@ -35,13 +35,11 @@ const NavBar = ({ background }) => {
           </ul>
         </nav>
 
-        {/* logo de la marca */}
-        <div className="logo-container">
-          <img src={brand} alt="logo" />
+        { }
+        <div className="cart-widget">
+          { }
+          <CartWidget />
         </div>
-
-        {/* cart widget */}
-        <CartWidget />
       </div>
     </header>
   );
