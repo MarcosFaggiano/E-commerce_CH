@@ -1,43 +1,36 @@
 import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = ({ background }) => {
-  const brand = '/src/assets/img/Logo.jpg';
+  // Define las categorías manualmente
+  const categories = [
+    { name: "Inicio", path: "/" },
+    { name: "men's clothing", path: "/category/mens-clothing" },
+    { name: "jewelry", path: "/category/jewelery" },
+    { name: "electronics", path: "/category/electronics" },
+    { name: "women's clothing", path: "/category/womens-clothing" }
+  ];
 
   return (
     <header className={`header background--${background}`}>
       <div className="header-container">
         <div className="logo-container">
-          { }
-          <img src={brand} alt="logo" className="mi-clase-de-imagen" />
+          <Link to="/">
+            <img src="/src/assets/img/shopping.png" alt="logo" className="mi-clase-de-imagen" />
+          </Link>
         </div>
-        { }
         <nav>
           <ul className="nav-container">
-            <li>
-              <a href="/">Inicio</a>
-            </li>
-            <li className="products-item">
-              <a href="/">
-                Productos <span className="arrow"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/">Blog</a>
-            </li>
-            <li>
-              <a href="/">Contacto</a>
-            </li>
+            {categories.map((category) => (
+              <li key={category.name}>
+                <Link to={category.path}>{category.name}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
-
-        { }
         <div className="cart-widget">
-          { }
           <CartWidget />
         </div>
       </div>
@@ -46,3 +39,5 @@ const NavBar = ({ background }) => {
 };
 
 export default NavBar;
+
+

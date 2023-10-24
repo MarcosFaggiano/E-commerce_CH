@@ -1,0 +1,45 @@
+/* Estilo para el contenedor principal del detalle del producto */
+.item-detail-container {
+  display: flex; /* Usamos flexbox */
+  flex-direction: column; /* Mostramos los elementos en una columna */
+  align-items: center; /* Centramos horizontalmente el contenido */
+  padding: 20px;
+}
+
+/* Estilo para la tarjeta (card) del producto */
+.item-card {
+  border: 1px solid #ccc; /* Agregamos un borde alrededor de la tarjeta */
+  border-radius: 5px; /* Añadimos bordes redondeados */
+  padding: 20px;
+  width: 70%; /* Ajusta el ancho de la tarjeta según tus necesidades */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Agregamos una sombra */
+}
+
+/* Estilo para el título del producto */
+.item-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Agregamos espacio inferior */
+}
+
+/* Estilo para la imagen del producto */
+.item-image {
+  max-width: 6cm; /* Establecemos un ancho máximo de 6 centímetros */
+  height: auto; /* Mantenemos la proporción original de la imagen */
+  transition: transform 0.2s;
+}
+
+/* Estilo para el precio del producto */
+.price {
+  color: #007bff; /* Cambiamos el color del precio (azul) */
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Agregamos espacio inferior */
+}
+
+/* Estilo para la imagen del producto cuando se pasa el ratón por encima */
+.item-image:hover {
+  transform: scale(1.1);
+}
+
+
