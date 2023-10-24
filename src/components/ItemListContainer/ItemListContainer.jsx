@@ -4,11 +4,11 @@ import { Link, useParams } from 'react-router-dom';
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
-  const { nombreCategoria } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    const url = nombreCategoria
-      ? `https://fakestoreapi.com/products/category/${nombreCategoria}`
+    const url = id
+      ? `https://fakestoreapi.com/products/category/${id}`
       : 'https://fakestoreapi.com/products';
 
     fetch(url)
@@ -17,7 +17,7 @@ const ItemListContainer = ({ greeting }) => {
         setProducts(json);
       })
       .catch((error) => console.error(error));
-  }, [nombreCategoria]);
+  }, [id]);
 
   return (
     <>

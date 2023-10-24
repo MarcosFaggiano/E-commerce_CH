@@ -7,10 +7,10 @@ const NavBar = ({ background }) => {
   // Define las categorías manualmente
   const categories = [
     { name: "Inicio", path: "/" },
-    { name: "men's clothing", path: "/category/mens-clothing" },
-    { name: "jewelry", path: "/category/jewelery" },
-    { name: "electronics", path: "/category/electronics" },
-    { name: "women's clothing", path: "/category/womens-clothing" }
+    { name: "Men", path: "/category/men's clothing" },
+    { name: "Jewelry", path: "/category/jewelery" },
+    { name: "Electronics", path: "/category/electronics" },
+    { name: "Women", path: "/category/women's clothing" }
   ];
 
   return (

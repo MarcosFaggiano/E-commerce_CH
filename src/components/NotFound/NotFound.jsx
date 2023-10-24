@@ -1,8 +1,14 @@
+import React from 'react';
+import notFoundImage from '/src/assets/img/404.png';
+import './NotFound.css';
+
 const NotFound = () => {
   return (
-    <h1>Ups! No encontramos esa pagina, volveremos a la pagina de inicio </h1>
-  )
-
+    <div className="mensaje-NotFound-div">
+      <h2 className="mensaje-NotFound">Ups! No encontramos la página.</h2>
+      <img className="mensaje-NotFound-img" src={notFoundImage} alt="Página no encontrada" />
+    </div>
+  );
 }
 
-export default NotFound
+export default NotFound;

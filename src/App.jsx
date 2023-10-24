@@ -14,7 +14,7 @@ function App() {
       <NavBar background={'transparent'} />
       <Routes>
         <Route exact path="/" element={<ItemListContainer greeting="¡Hola, bienvenido a nuestra tienda en línea!" />} />
-        <Route exact path="/category/:nombreCategoria" element={<ItemListContainer />} />
+        <Route exact path="/category/:id" element={<ItemListContainer />} />
         <Route path="/product/:productId" element={<ItemDetailContainer />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
