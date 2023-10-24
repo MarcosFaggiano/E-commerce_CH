@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = ({ background }) => {
-  // Define las categorías manualmente
+
   const categories = [
     { name: "Inicio", path: "/" },
     { name: "Men", path: "/category/men's clothing" },

@@ -12,9 +12,9 @@
 
 .mi-clase-de-imagen{
   border-radius: 10px;
-  width: 15%; /* Reducir el ancho al 50% */
-  height: 15%; /* Reducir el alto al 50% */
-  margin-left: -3cm; /* Mover hacia la izquierda 1 centímetro */
+  width: 15%; 
+  height: 15%; 
+  margin-left: -3cm; 
 }
 .header-container {
   display: flex;
