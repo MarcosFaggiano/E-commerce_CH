@@ -7,8 +7,8 @@ const NavBar = ({ background }) => {
 
   const categories = [
     { name: "Inicio", path: "/" },
-    { name: "Men", path: "/category/men's clothing" },
-    { name: "Jewelry", path: "/category/jewelery" },
+    { name: "Hombres", path: "/category/Hombres" },
+    { name: "Mujer", path: "/category/Mujer" },
     { name: "Electronics", path: "/category/electronics" },
     { name: "Women", path: "/category/women's clothing" }
   ];
