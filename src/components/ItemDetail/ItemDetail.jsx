@@ -19,3 +19,5 @@ const ItemDetail = ({ product, selectedQuantity, setSelectedQuantity }) => {
 };
 
 export default ItemDetail;
+
+

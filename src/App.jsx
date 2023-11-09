@@ -7,6 +7,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './components/NotFound/NotFound';
+import CartWidget from './components/CartWidget/CartWidget';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route exact path="/" element={<ItemListContainer greeting="¡Hola, bienvenido a nuestra tienda en línea!" />} />
         <Route exact path="/category/:id" element={<ItemListContainer />} />
         <Route path="/product/:productId" element={<ItemDetailContainer />} />
+        <Route path="/cart" element={<CartWidget />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
@@ -23,6 +26,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 
