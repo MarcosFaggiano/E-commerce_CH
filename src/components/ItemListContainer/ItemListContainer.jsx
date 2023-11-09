@@ -1,64 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import './ItemListContainer.css';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { db } from "../../firebase/client";
-import { collection, doc, getDoc, getDocs, getFirestore, query, where, limit } from 'firebase/firestore'; // Importar las funciones necesarias de Firestore
-
+import './ItemListContainer.css';
+import { db } from '../../firebase/client';
+import { collection, getDocs } from 'firebase/firestore';
+import ItemList from '../ItemList/ItemList';
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
 
-
   useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productsRef = collection(db, "products");
+        const snapshot = await getDocs(productsRef);
+        const productsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setProducts(productsData);
+      } catch (error) {
+        console.error("Error fetching products: ", error);
+      }
+    };
 
-    // ******Obtener 1 solo producto*****/////
-    // const productRef = doc(db, "products", "bp4v0YcCXfhdWdppTO2f")
-    // getDoc(productRef)
-    //   .then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //       console.log({ id: snapshot.id, ...snapshot.data() })
-    //     }
-    //   })
-    //   .catch(e => console.error(e))
-
-    // ******filtros *****/////
-    // const productsReffilter = query(
-    //   collection(db, "products"),
-    //   where("categoryId", "==", "pantalones")
-    // )
-
-
-
-
-    const productsRef = collection(db, "products",)
-    getDocs(productsRef)
-      .then(snapshot => {
-        setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
-      })
-      .catch(e => console.error(e))
-    // .finally(() => setLoading(false))
-  }, [])
+    fetchProducts();
+  }, []);
 
   return (
     <>
       <h1 className="greeting">{greeting}</h1>
-      <div className="product-grid">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.title} className="product-image" />
-            <h2 className="product-title">{product.title}</h2>
-            <Link to={`/product/${product.id}`} className="btn btn-primary">
-              Ver detalles
-            </Link>
-          </div>
-        ))}
-      </div>
+      <ItemList products={products} />
     </>
   );
 };
 
 export default ItemListContainer;
+
+
+
+
+
+
 
 
 

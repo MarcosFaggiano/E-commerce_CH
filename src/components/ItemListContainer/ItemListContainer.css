@@ -1,3 +1,4 @@
+/* Elimina el contenido anterior y utiliza el siguiente CSS para ItemListContainer */
 .item-list-container {
   background-color: #f0f0f0;
   padding: 20px;
@@ -11,17 +12,20 @@
   color: #333;
 }
 
-
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product-card {
-  border: 1px solid #ccc;
+  width: calc(33.33% - 20px); /* Aproximadamente un tercio del ancho menos el espacio entre tarjetas */
+  margin: 10px;
   padding: 20px;
+  border: 1px solid #ccc;
   text-align: center;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .product-image {
@@ -36,5 +40,6 @@
 .product-description {
   font-size: 14px; 
 }
+
 
 
