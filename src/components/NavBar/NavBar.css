@@ -63,5 +63,9 @@
   margin-left: auto;
 }
 
-
+.imgCarrito {
+  width: 1cm;
+  height: 1cm;
+  vertical-align: middle;
+}
 

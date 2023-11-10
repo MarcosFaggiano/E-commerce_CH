@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from '../CartWidget/CartWidget'; // Importa el componente CartWidget
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -45,9 +45,9 @@ const NavBar = ({ background }) => {
             ))}
           </ul>
         </nav>
-        <div className="cart-widget">
-          <CartWidget />
-        </div>
+      </div>
+      <div className="cart-widget">
+        <CartWidget /> {/* Usa el componente CartWidget en lugar de Cart */}
       </div>
     </header>
   );

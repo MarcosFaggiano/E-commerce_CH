@@ -1,27 +1,17 @@
-import React from 'react';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-
-import './CartWidget.css';
+import React, { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
+  const { cantidadTotal } = useContext(CartContext);
 
+  const imgCarrito = "https://cdn-icons-png.flaticon.com/512/3144/3144456.png";
   return (
-    <div className="cart-widget">
-      <FontAwesomeIcon icon={faCartShopping} size="2x" color="white" />
-      <div className="qty-display" >2</div>
-    </div>
+    <Link to="/cart">
+      <img className='imgCarrito' src={imgCarrito} alt="Carrito de compras" />
+      {cantidadTotal > 0 && <strong>{cantidadTotal}</strong>}
+    </Link>
   );
 };
 
 export default CartWidget;
-
-
-
-
-
-
-
-
-

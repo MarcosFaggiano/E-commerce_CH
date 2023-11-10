@@ -1,10 +1,16 @@
+// ItemDetail.jsx
 import React from 'react';
-import ItemCount from '../ItemCount/ItemCount';
+import Contador from "../ItemCount/ItemCount";
+import { Link } from 'react-router-dom';
+import { CartContext } from "../../Context/CartContext";
+import { useContext } from "react";
 
-const ItemDetail = ({ product, selectedQuantity, setSelectedQuantity }) => {
-  if (!product) {
-    return <div>Cargando detalles del producto...</div>;
-  }
+const ItemDetail = ({ product }) => {
+  const { agregarAlCarrito } = useContext(CartContext);
+
+  const handleQuantityChange = (newQuantity) => {
+    agregarAlCarrito(product, newQuantity);
+  };
 
   return (
     <div className="item-detail-container">
@@ -12,12 +18,19 @@ const ItemDetail = ({ product, selectedQuantity, setSelectedQuantity }) => {
       <img src={product.image} alt={product.title} className="item-image" />
       <h2 className="price">${product.price}</h2>
       <h6 className="description">{product.description}</h6>
-
-      <ItemCount initial={selectedQuantity} stock={10} onAdd={setSelectedQuantity} />
+      <Contador inicial={1} stock={10} onAdd={handleQuantityChange} />
     </div>
   );
 };
 
 export default ItemDetail;
+
+
+
+
+
+
+
+
 
 

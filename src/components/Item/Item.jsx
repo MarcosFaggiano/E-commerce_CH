@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
 
 const Item = ({ product }) => {
+  const { numero } = useContext(CartContext)
   return (
     <div key={product.id} className="product-card">
       <img src={product.image} alt={product.title} className="product-image" />
@@ -10,6 +14,7 @@ const Item = ({ product }) => {
       <Link to={`/product/${product.id}`} className="btn btn-primary">
         Ver detalles
       </Link>
+      <p>{numero}</p>
     </div>
   );
 };
