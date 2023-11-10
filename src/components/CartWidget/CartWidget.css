@@ -1,0 +1,15 @@
+.cart-widget-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-widget-badge {
+  position: absolute;
+  top: -16px; /* Ajustado a -8px para mover hacia arriba */
+  right: 7px; /* Ajustado a -8px para mover hacia la izquierda */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 10px;
+}

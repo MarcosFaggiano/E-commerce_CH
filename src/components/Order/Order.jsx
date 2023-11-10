@@ -7,6 +7,7 @@ import { CartContext } from '../../Context/CartContext';
 const Order = () => {
   const [apellido, setApellido] = useState('');
   const [nombre, setNombre] = useState('');
+  const [direccion, setDireccion] = useState('');
   const [telefono, setTelefono] = useState('');
   const [email, setEmail] = useState('');
   const [confirmarEmail, setConfirmarEmail] = useState('');
@@ -25,6 +26,7 @@ const Order = () => {
     const orden = {
       apellido,
       nombre,
+      direccion,
       telefono,
       email,
     };
@@ -37,6 +39,7 @@ const Order = () => {
       // Limpiar los campos del formulario después de crear la orden
       setApellido('');
       setNombre('');
+      setDireccion('');
       setTelefono('');
       setEmail('');
       setConfirmarEmail('');
@@ -52,7 +55,16 @@ const Order = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Formulario de Orden</h2>
+      <div className=" align-items-center mb-4">
+        <h2>Estás a un click de confirmar tu compra!</h2>
+        <img
+          src="/src/assets/img/envio.webp"
+          alt="Imagen de confirmación"
+          className="ml-2" // Agregamos margen a la izquierda para separar la imagen del texto
+          style={{ width: '400px', height: '200px' }} // Puedes ajustar el tamaño de la imagen según tus necesidades
+        />
+        <h5>Completa los siguientes datos asi podemos enviarte tu pedido</h5>
+      </div>
       <form>
         <div className="mb-3">
           <label htmlFor="apellido" className="form-label">
@@ -76,6 +88,18 @@ const Order = () => {
             id="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="direccion" className="form-label">
+            Direccion ¿Donde te lo enviamos?
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="direccion"
+            value={direccion}
+            onChange={(e) => setDireccion(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -115,7 +139,7 @@ const Order = () => {
           />
         </div>
         <button type="button" className="btn btn-primary" onClick={crearOrdenDeCompra}>
-          Crear Orden
+          Comprar
         </button>
       </form>
     </div>
@@ -123,4 +147,5 @@ const Order = () => {
 };
 
 export default Order;
+
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
@@ -5,10 +6,7 @@ const CartItem = ({ item, cantidad }) => {
   const { eliminarProducto } = useContext(CartContext);
 
   // Comprobamos que el precio y la cantidad sean números válidos
-  const isValidNumber = value => typeof value === 'number' && !isNaN(value);
-
-  console.log("Precio del ítem:", item.precio);
-  console.log("Cantidad:", cantidad);
+  const isValidNumber = (value) => typeof value === "number" && !isNaN(value);
 
   // Definir el precio unitario y la cantidad del producto
   const precio = isValidNumber(item.precio) ? item.precio : 0;
@@ -17,33 +15,49 @@ const CartItem = ({ item, cantidad }) => {
   // Calcular el precio total
   const precioTotal = precio * cantidadProducto;
 
-  console.log("Precio total:", precioTotal);
-
   return (
-    <div className="d-flex justify-content-between">
-      <div className="d-flex align-items-center">
-        <div className="mr-3">
-          <h2 className="item-title">{item.title}</h2>
-          <img src={item.image} alt={item.title} className="item-image img-fluid" style={{ maxWidth: '100px' }} />
+    <div className="card mb-3">
+      <div className="row g-0">
+        <div className="col-md-2">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="item-image img-fluid"
+            style={{ maxWidth: "150px" }}
+          />
         </div>
-        <div className="d-flex justify-content-around">
-          <p className="mb-1">Cantidad: {cantidadProducto}</p>
-          <p className="mb-1">Precio por unidad: ${precio}</p>
-          <p className="mb-1">Precio total: ${precioTotal}</p>
-          <button onClick={() => eliminarProducto(item.id)} className="btn btn-danger mt-2">
-            Eliminar
-          </button>
+        <div className="col-md-9">
+          <div className="card-body ">
+            <h2 className="card-title text-center mb-4">{item.title}</h2>
+            <div className="card-title text-center mb-4">
+              <div className="d-flex justify-content-between align-items-center" >
+                <p className="mb-1" style={{ marginBottom: '0.5cm', fontSize: '1.1em', fontWeight: 'Open', color: '#666666' }}>
+                  Cantidad: {cantidadProducto}
+                </p>
+                <p className="mb-1" style={{ marginBottom: '0.5cm', fontSize: '1.1em', fontWeight: 'Open', color: '#666666' }}>
+                  Precio por unidad: ${precio}
+                </p>
+                <p className="mb-1" style={{ marginBottom: '0.5cm', fontSize: '1.2em', fontWeight: 'bold', color: '#666666' }}>
+                  Precio total: ${precioTotal}
+                </p>
+                <button
+                  onClick={() => eliminarProducto(item.id)}
+                  className="btn btn-danger"
+                >
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-
-
   );
 };
 
 export default CartItem;
+
+
 
 
 
