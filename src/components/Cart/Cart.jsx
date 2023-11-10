@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
 import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
@@ -24,13 +24,14 @@ const Cart = () => {
       ))}
       <h3>Total: ${total}</h3>
       <h3>Cantidad Total: {cantidadTotal}</h3>
-      <button onClick={() => vaciarCarrito()} className="btn btn-danger">Vaciar Carrito</button> {/* Estilo de botón para "Vaciar Carrito" */}
-      <Link to="/Order" className="btn btn-primary">Finalizar Compra</Link> {/* Estilo de botón para "Finalizar Compra" */}
+      <button onClick={() => vaciarCarrito()} className="btn btn-danger">Vaciar Carrito</button>
+      <Link to="/Order" className="btn btn-primary">Finalizar Compra</Link>
     </div>
   );
 };
 
 export default Cart;
+
 
 
 

@@ -26,7 +26,7 @@ const CartItem = ({ item, cantidad }) => {
           <h2 className="item-title">{item.title}</h2>
           <img src={item.image} alt={item.title} className="item-image img-fluid" style={{ maxWidth: '100px' }} />
         </div>
-        <div class="d-flex justify-content-around">
+        <div className="d-flex justify-content-around">
           <p className="mb-1">Cantidad: {cantidadProducto}</p>
           <p className="mb-1">Precio por unidad: ${precio}</p>
           <p className="mb-1">Precio total: ${precioTotal}</p>
