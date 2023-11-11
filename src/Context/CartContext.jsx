@@ -8,8 +8,16 @@ export const CartContext = createContext({
 
 const CartContextProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
-  const [total, setTotal] = useState(0);
   const [cantidadTotal, setCantidadTotal] = useState(0);
+
+  // Cambiamos la variable total para ser calculada dinámicamente en función del carrito actual
+  const total = carrito.reduce((acc, producto) => {
+    // Asegurémonos de que todos los valores sean números válidos
+    const precio = typeof producto.precio === "number" && !isNaN(producto.precio) ? producto.precio : 0;
+    const cantidad = typeof producto.cantidad === "number" && !isNaN(producto.cantidad) ? producto.cantidad : 0;
+
+    return acc + precio * cantidad;
+  }, 0);
 
   const agregarAlCarrito = (item, cantidad) => {
     const productoExistente = carrito.find(prod => prod.item.id === item.id);
@@ -20,11 +28,9 @@ const CartContextProvider = ({ children }) => {
         {
           item,
           cantidad,
-          precio: item.precio // Agregar el precio al elemento del carrito
+          precio: item.price
         }
       ]);
-      setCantidadTotal(prev => prev + cantidad);
-      setTotal(prev => prev + (item.precio * cantidad));
     } else {
       const carritoActualizado = carrito.map(prod => {
         if (prod.item.id === item.id) {
@@ -34,9 +40,9 @@ const CartContextProvider = ({ children }) => {
         }
       });
       setCarrito(carritoActualizado);
-      setCantidadTotal(prev => prev + cantidad);
-      setTotal(prev => prev + (item.precio * cantidad));
     }
+
+    setCantidadTotal(prev => prev + cantidad);
   };
 
   const eliminarProducto = (id) => {
@@ -45,13 +51,11 @@ const CartContextProvider = ({ children }) => {
 
     setCarrito(carritoActualizado);
     setCantidadTotal(prev => prev - productoEliminado.cantidad);
-    setTotal(prev => prev - (productoEliminado.precio * productoEliminado.cantidad));
   };
 
   const vaciarCarrito = () => {
     setCarrito([]);
     setCantidadTotal(0);
-    setTotal(0);
   };
 
   return (
@@ -71,4 +75,5 @@ const CartContextProvider = ({ children }) => {
 };
 
 export { CartContextProvider };
+
 

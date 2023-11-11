@@ -1,14 +1,12 @@
-
-
-
 import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 const CartItem = ({ item, cantidad }) => {
   const { eliminarProducto } = useContext(CartContext);
 
-  // Agrega este console.log para imprimir item en la consola
-  // console.log("Item:", item);
+  // Agrega estos console.log para imprimir valores en la consola
+  console.log("Item:", item);
+  console.log("Cantidad:", cantidad);
 
   // Comprobamos que el precio y la cantidad sean números válidos
   const isValidNumber = (value) => typeof value === "number" && !isNaN(value);
@@ -22,6 +20,11 @@ const CartItem = ({ item, cantidad }) => {
   // Calcular el precio total
   const precioTotal = precio * cantidadProducto;
 
+  // Agrega estos console.log para imprimir valores en la consola
+  console.log("Precio:", precio);
+  console.log("Cantidad del Producto:", cantidadProducto);
+  console.log("Precio Total:", precioTotal);
+
   return (
     <div className="card mb-3">
       <div className="row g-0">
@@ -34,7 +37,7 @@ const CartItem = ({ item, cantidad }) => {
           />
         </div>
         <div className="col-md-9">
-          <div className="card-body ">
+          <div className="card-body">
             <h2 className="card-title text-center mb-4">{item.title}</h2>
             <div className="card-title text-center mb-4">
               <div className="d-flex justify-content-between align-items-center">
@@ -87,3 +90,7 @@ const CartItem = ({ item, cantidad }) => {
 };
 
 export default CartItem;
+
+
+
+
