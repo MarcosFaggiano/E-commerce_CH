@@ -1,15 +1,22 @@
-import React from "react";
-import { useContext } from "react";
+
+
+
+import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 const CartItem = ({ item, cantidad }) => {
   const { eliminarProducto } = useContext(CartContext);
 
+  // Agrega este console.log para imprimir item en la consola
+  // console.log("Item:", item);
+
   // Comprobamos que el precio y la cantidad sean números válidos
   const isValidNumber = (value) => typeof value === "number" && !isNaN(value);
 
-  // Definir el precio unitario y la cantidad del producto
-  const precio = isValidNumber(item.precio) ? item.precio : 0;
+  // Obtener el precio del objeto item
+  const precio = isValidNumber(item.price) ? item.price : 0;
+
+  // Obtener la cantidad del producto
   const cantidadProducto = isValidNumber(cantidad) ? cantidad : 0;
 
   // Calcular el precio total
@@ -30,14 +37,38 @@ const CartItem = ({ item, cantidad }) => {
           <div className="card-body ">
             <h2 className="card-title text-center mb-4">{item.title}</h2>
             <div className="card-title text-center mb-4">
-              <div className="d-flex justify-content-between align-items-center" >
-                <p className="mb-1" style={{ marginBottom: '0.5cm', fontSize: '1.1em', fontWeight: 'Open', color: '#666666' }}>
+              <div className="d-flex justify-content-between align-items-center">
+                <p
+                  className="mb-1"
+                  style={{
+                    marginBottom: "0.5cm",
+                    fontSize: "1.1em",
+                    fontWeight: "Open",
+                    color: "#666666",
+                  }}
+                >
                   Cantidad: {cantidadProducto}
                 </p>
-                <p className="mb-1" style={{ marginBottom: '0.5cm', fontSize: '1.1em', fontWeight: 'Open', color: '#666666' }}>
+                <p
+                  className="mb-1"
+                  style={{
+                    marginBottom: "0.5cm",
+                    fontSize: "1.1em",
+                    fontWeight: "Open",
+                    color: "#666666",
+                  }}
+                >
                   Precio por unidad: ${precio}
                 </p>
-                <p className="mb-1" style={{ marginBottom: '0.5cm', fontSize: '1.2em', fontWeight: 'bold', color: '#666666' }}>
+                <p
+                  className="mb-1"
+                  style={{
+                    marginBottom: "0.5cm",
+                    fontSize: "1.2em",
+                    fontWeight: "bold",
+                    color: "#666666",
+                  }}
+                >
                   Precio total: ${precioTotal}
                 </p>
                 <button
@@ -56,27 +87,3 @@ const CartItem = ({ item, cantidad }) => {
 };
 
 export default CartItem;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
