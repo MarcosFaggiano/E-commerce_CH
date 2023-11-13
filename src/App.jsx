@@ -10,7 +10,7 @@ import NotFound from './components/NotFound/NotFound';
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./Context/CartContext";
 import Order from "./components/Order/Order";
-// import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
+
 
 
 
@@ -27,7 +27,6 @@ function App() {
             <Route path="/product/:productId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/Order" element={<Order />} />
-            {/* <Route path="/OrderConfirmation" element={<OrderConfirmation />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
