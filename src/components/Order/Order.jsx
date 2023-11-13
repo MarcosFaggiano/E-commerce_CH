@@ -70,6 +70,13 @@ const Order = () => {
     }
   };
 
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleClose = () => {
+    setShowConfirmation(false);
+    window.location.reload();
+  };
+
   return (
     <div className="container mt-5">
       <div className=" align-items-center mb-4">
@@ -155,15 +162,24 @@ const Order = () => {
             onChange={(e) => setConfirmarEmail(e.target.value)}
           />
         </div>
-        <button type="button" className="btn btn-primary" onClick={crearOrdenDeCompra} disabled={!formCompleto}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => {
+            crearOrdenDeCompra();
+            setShowConfirmation(true);
+          }}
+          disabled={!formCompleto}
+        >
           Comprar
         </button>
 
-        {orderID && <OrderConfirmation orderID={orderID} />}
+        {showConfirmation && <OrderConfirmation orderID={orderID} handleClose={handleClose} />}
       </form>
     </div>
   );
 };
 
 export default Order;
+
 
