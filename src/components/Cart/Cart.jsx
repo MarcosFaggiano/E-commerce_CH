@@ -18,7 +18,7 @@ const Cart = () => {
           />
           <h2>Sin compras</h2>
           <p>
-            Todavía no viste todo lo que tenemos para vos? <Link to="/">aquí</Link>
+            Todavía no viste todo lo que tenemos para vos? <Link to="/">Ingresa aquí</Link>
           </p>
         </div>
       </>
@@ -36,7 +36,7 @@ const Cart = () => {
       {/* Añadimos un console.log para depurar */}
       <h3>Total: ${total}</h3>
       <h3>Cantidad Total: {cantidadTotal}</h3>
-      <button onClick={() => vaciarCarrito()} className="btn btn-danger">Vaciar Carrito</button>
+      <button onClick={() => vaciarCarrito()} className="btn btn-danger vaciar-carrito">Vaciar Carrito</button>
       <Link to="/Order" className="btn btn-primary">Finalizar Compra</Link>
     </div>
   );
