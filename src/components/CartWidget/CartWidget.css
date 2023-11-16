@@ -5,8 +5,8 @@
 
 .cart-widget-badge {
   position: absolute;
-  top: -16px; /* Ajustado a -8px para mover hacia arriba */
-  right: 7px; /* Ajustado a -8px para mover hacia la izquierda */
+  top: -16px; 
+  right: 7px; 
   background-color: red;
   color: white;
   border-radius: 50%;

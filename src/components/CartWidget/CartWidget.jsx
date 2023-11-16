@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
-import './CartWidget.css'; // Asegúrate de importar tu archivo de estilos
+import './CartWidget.css';
 
 const CartWidget = () => {
   const { cantidadTotal } = useContext(CartContext);

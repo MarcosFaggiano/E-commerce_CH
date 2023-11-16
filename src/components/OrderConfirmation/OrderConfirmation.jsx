@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const OrderConfirmation = ({ orderID, handleClose }) => {
   const navigate = useNavigate();
 
-  // Define la función handleModalClose fuera del useEffect para poder usarla en el onHide y en el onExited
   const handleModalClose = () => {
     handleClose();
     navigate('/');
@@ -13,11 +12,10 @@ const OrderConfirmation = ({ orderID, handleClose }) => {
   };
 
   useEffect(() => {
-    // No necesitas el timeout, manejarás la redirección y actualización en el evento onHide
+
 
     return () => {
-      // Esta parte se ejecutará cuando el componente se desmonte
-      // Puedes agregar limpiezas adicionales si es necesario
+
     };
   }, [navigate, handleClose]);
 

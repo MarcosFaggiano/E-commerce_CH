@@ -4,26 +4,13 @@ import { CartContext } from "../../Context/CartContext";
 const CartItem = ({ item, cantidad }) => {
   const { eliminarProducto } = useContext(CartContext);
 
-  // Agrega estos console.log para imprimir valores en la consola
-  console.log("Item:", item);
-  console.log("Cantidad:", cantidad);
-
-  // Comprobamos que el precio y la cantidad sean números válidos
   const isValidNumber = (value) => typeof value === "number" && !isNaN(value);
 
-  // Obtener el precio del objeto item
   const precio = isValidNumber(item.price) ? item.price : 0;
 
-  // Obtener la cantidad del producto
   const cantidadProducto = isValidNumber(cantidad) ? cantidad : 0;
 
-  // Calcular el precio total
   const precioTotal = precio * cantidadProducto;
-
-  // Agrega estos console.log para imprimir valores en la consola
-  console.log("Precio:", precio);
-  console.log("Cantidad del Producto:", cantidadProducto);
-  console.log("Precio Total:", precioTotal);
 
   return (
     <div className="card mb-3">

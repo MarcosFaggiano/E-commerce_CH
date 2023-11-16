@@ -51,7 +51,7 @@ const Order = () => {
 
     try {
       const refOrder = await addDoc(collection(db, 'orders'), orden);
-      console.log('Orden creada con ID:', refOrder.id);
+
 
       setOrderID(refOrder.id);
 
@@ -64,7 +64,6 @@ const Order = () => {
 
       vaciarCarrito();
 
-      // Puedes realizar otras acciones después de crear la orden si es necesario
     } catch (error) {
       console.error('Error al crear la orden:', error);
     }

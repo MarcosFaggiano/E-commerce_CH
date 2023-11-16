@@ -12,7 +12,7 @@ const Cart = () => {
       <>
         <div>
           <img
-            src="/src/assets/img/emptycart-2.png"  // Reemplaza con la ruta de tu imagen
+            src="/src/assets/img/emptycart-2.png"
             alt="Imagen de muestra"
             className="imagen-sin-compras"
           />
@@ -25,15 +25,12 @@ const Cart = () => {
     );
   }
 
-  // Añadimos un console.log para depurar
-  console.log("Total:", total);
 
   return (
     <div>
       {carrito.map((producto, index) => (
         <CartItem key={index} item={producto.item} cantidad={producto.cantidad} />
       ))}
-      {/* Añadimos un console.log para depurar */}
       <h3>Total: ${total}</h3>
       <h3>Cantidad Total: {cantidadTotal}</h3>
       <button onClick={() => vaciarCarrito()} className="btn btn-danger vaciar-carrito">Vaciar Carrito</button>

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app"
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  // Aca va el objeto que nos da Firebase:
+
   apiKey: "AIzaSyD2HRTHfe5-YAYx4EErt1iRTElwG9_LWvw",
   authDomain: "e-commercech-8b5e4.firebaseapp.com",
   projectId: "e-commercech-8b5e4",
